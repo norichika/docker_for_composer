@@ -9,3 +9,7 @@ RUN apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev lib
   NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
   docker-php-ext-install -j${NPROC} gd && \
   apk del --no-cache freetype-dev libpng-dev libjpeg-turbo-dev
+
+RUN apk add --no-cache $PHPIZE_DEPS \
+    && pecl install xdebug-2.5.0 \
+    && docker-php-ext-enable xdebug
