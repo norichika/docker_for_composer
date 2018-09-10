@@ -13,3 +13,8 @@ RUN apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev lib
 RUN apk add --no-cache $PHPIZE_DEPS \
     && pecl install xdebug-2.5.0 \
     && docker-php-ext-enable xdebug
+
+RUN apk update \
+ && apk add ssmtp mailx
+
+COPY ssmtp.conf /etc/ssmtp/ssmtp.conf
