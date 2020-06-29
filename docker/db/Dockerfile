@@ -1,5 +1,5 @@
 # Dockerfile_MySQL
-FROM mysql:5.7.19
+FROM mysql:5.7.30
 
 # Set debian default locale to ja_JP.UTF-8
 RUN apt-get update && \
